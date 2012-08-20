@@ -59,6 +59,7 @@ module Ebay #:nodoc:
       http             = Net::HTTP.new(@site.host, @site.port)
       http.use_ssl     = @site.is_a?(URI::HTTPS)
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE if http.use_ssl
+      http.read_timeout = 600
       http
     end
   end
